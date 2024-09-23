@@ -1,0 +1,1 @@
+# inspec-elasticsearch-resources
