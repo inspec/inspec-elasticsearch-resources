@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require "minitest/autorun"
+require "minitest/unit"
+require "minitest/pride"
+require "inspec/resource"
+require "mocha/minitest"
 
 module Minitest
   class Test

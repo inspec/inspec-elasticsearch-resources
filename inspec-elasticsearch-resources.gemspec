@@ -17,8 +17,8 @@ Gem::Specification.new do |spec|
   spec.version       = InspecPlugins::ElasticsearchResources::VERSION
   spec.authors       = ["InSpec Core Maintainers"]
   spec.email         = ["inspec@progress.com"]
-  spec.summary       = "Docker InSpec Resources in a Gem"
-  spec.description   = "Contains InSpec 7.0+ resources fo interacting with Docker Desktop."
+  spec.summary       = "InSpec elasticsearch Resources in a Gem"
+  spec.description   = "Contains InSpec 7.0+ resources fo interacting with Elasticsearch Resources."
   spec.homepage      = "https://github.com/inspec/inspec-elasticsearch-resources"
   spec.license       = "Apache-2.0"
 

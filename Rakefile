@@ -27,3 +27,5 @@ end
 
 namespace :test do
 end
+
+task default: %i{style test}
