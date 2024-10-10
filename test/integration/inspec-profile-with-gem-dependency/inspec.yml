@@ -1,0 +1,13 @@
+name: inspec-profile-with-gem-dependency
+title: InSpec Profile
+maintainer: InSpec Engineering
+copyright: Chef Software, Inc.
+copyright_email: inspec@chef.io
+license: Apache-2.0
+summary: An InSpec Compliance Profile to test inspec run
+version: 0.1.0
+supports:
+  platform: os
+depends:
+  - name: inspec-elasticsearch-resources
+    gem: inspec-elasticsearch-resources
