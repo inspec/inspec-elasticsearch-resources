@@ -1,9 +1,10 @@
-require "helper"
+require_relative "../helper"
 require "inspec/resource"
-require "inspec/resources/elasticsearch"
+require "inspec-elasticsearch-resources/resources/elasticsearch"
 
 describe "Inspec::Resources::Elasticsearch" do
-  let(:resource) { load_resource("elasticsearch") }
+
+  let(:resource) { Inspec::Resources::Elasticsearch.new(backend) }
 
   it "returns a build hash" do
     _(resource.build_hash).must_equal %w{b2f0c09 b2f0c09}
@@ -114,7 +115,7 @@ describe "Inspec::Resources::Elasticsearch" do
   end
 
   describe "with a custom url" do
-    let(:resource) { load_resource("elasticsearch", url: "http://elasticsearch.mycompany.biz:1234") }
+    let(:resource) { Inspec::Resources::Elasticsearch.new(backend, url: "http://elasticsearch.mycompany.biz:1234") }
 
     # this test relies on the MockLoader running a unique command to get Elasticsearch data
     # using a custom URL which returns a different payload than the other tests.
@@ -124,7 +125,7 @@ describe "Inspec::Resources::Elasticsearch" do
   end
 
   describe "with authentication" do
-    let(:resource) { load_resource("elasticsearch", username: "es_admin", password: "password") }
+    let(:resource) { Inspec::Resources::Elasticsearch.new(backend, username: "es_admin", password: "password") }
 
     # this test relies on the MockLoader running a unique command to get Elasticsearch data
     # using authentication which returns a different payload than the other tests.
@@ -134,7 +135,7 @@ describe "Inspec::Resources::Elasticsearch" do
   end
 
   describe "with SSL verification disabled" do
-    let(:resource) { load_resource("elasticsearch", ssl_verify: false) }
+    let(:resource) { Inspec::Resources::Elasticsearch.new(backend, ssl_verify: false) }
 
     # this test relies on the MockLoader running a unique command to get Elasticsearch data
     # with SSL verification disabled which returns a different payload than the other tests.
