@@ -61,7 +61,11 @@ module Inspec::Resources
       password   = opts.fetch(:password, nil)
       ssl_verify = opts.fetch(:ssl_verify, true)
 
-      cmd = inspec.command(curl_command_string(username, password, ssl_verify))
+      begin
+        cmd = inspec.command(curl_command_string(username, password, ssl_verify))
+      rescue => e
+        return skip_resource e.message
+      end
 
       # after implementation of PR #2235, this begin..rescue won't be necessary.
       # The checks in verify_curl_success! can raise their own skip message exception.
