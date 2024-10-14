@@ -5,6 +5,7 @@ require "minitest/unit"
 require "minitest/pride"
 require "inspec/resource"
 require "mocha/minitest"
+require "inspec/backend"
 
 module Minitest
   class Test
