@@ -22,7 +22,7 @@ def backend
   mock.mock_os({ name: "ubuntu", family: "debian", release: "22.04", arch: "x86_64" })
   scriptpath = ::File.expand_path "..", __dir__
   cmd = lambda { |x|
-    stdout = ::File.read(::File.join(scriptpath, "/fixtures/cmd/" + x))
+    stdout = ::File.read(::File.join(scriptpath, "/fixtures/" + x))
     mock.mock_command("", stdout, "", 0)
   }
   mock.commands = {
