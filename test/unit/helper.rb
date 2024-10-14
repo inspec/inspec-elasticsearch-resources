@@ -14,6 +14,15 @@ module Minitest
   end
 end
 
+def load_elasticsearch_resource(*args)
+  # initialize resource with backend and parameters
+  resource = "elasticsearch"
+  @resource_class = Inspec::Resource.registry[resource]
+  raise ArgumentError, "No resource #{resource}" unless @resource_class
+
+  @resource = @resource_class.new(backend, resource, *args)
+end
+
 def backend
   return @backend if @backend
 
