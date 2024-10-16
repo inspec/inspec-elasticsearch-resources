@@ -2,7 +2,7 @@ require_relative "../helper"
 require "inspec/resource"
 require "inspec-elasticsearch-resources/resources/elasticsearch"
 
-describe "Inspec::Resources::Elasticsearch" do
+describe "Elasticsearch" do
 
   let(:resource) { load_elasticsearch_resource }
 
