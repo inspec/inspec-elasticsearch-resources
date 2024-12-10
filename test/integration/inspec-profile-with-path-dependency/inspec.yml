@@ -1,4 +1,4 @@
-name: inspec-profile-test
+name: inspec-profile-with-path-dependency
 title: InSpec Profile
 maintainer: InSpec Engineering
 copyright: Chef Software, Inc.
@@ -8,3 +8,6 @@ summary: An InSpec Compliance Profile to test inspec run
 version: 0.1.0
 supports:
   platform: os
+depends:
+  - name: inspec-elasticsearch-resources
+    path: '../../../'
