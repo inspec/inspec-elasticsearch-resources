@@ -5,7 +5,7 @@ if ENV["CI_ENABLE_COVERAGE"]
   require_relative "../helpers/simplecov_minitest"
   SimpleCov.start do
     add_filter "/test/"
-    add_group "Resources", ["lib/inspec-sybase-resources/resources"]
+    add_group "Resources", ["lib/inspec-elasticsearch-resources/resources"]
   end
 end
 
