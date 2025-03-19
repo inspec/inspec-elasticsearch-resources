@@ -8,14 +8,14 @@ expeditor:
           limit: 1
 
 steps:
-  - label: lint-chefstyle
+  - label: lint-chefstyle-ruby-3.4.2
     command:
       - chmod +x .expeditor/buildkite/verify.sh
       - .expeditor/buildkite/verify.sh "rake style"
     expeditor:
       executor:
         docker:
-          image: ruby:3.1-bullseye
+          image: ruby:3.4.2-bullseye
 
   - label: run-specs-ruby-3.1
     command:
@@ -24,7 +24,7 @@ steps:
     expeditor:
       executor:
         docker:
-          image: ruby:3.1-bullseye
+          image: ruby:3.4.2-bullseye
 
   - label: run-specs-ruby-3.1-windows
     commands:
