@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   ).reject { |f| File.directory?(f) }
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = ">= 3.4.2"
+  spec.required_ruby_version = ">= 3.1.0"
 
   # If you rely on any other gems, list them here with any constraints.
   # This is how `inspec plugin install` is able to manage your dependencies.
@@ -40,6 +40,5 @@ Gem::Specification.new do |spec|
   # want to ensure you have `aws-sdk` in a certain version.
 
   # This plugin uses InSpec 7 Resource Pack Plugins
-  # TODO: Update 7.x to the version which starts supporting Ruby 3.4.2
   spec.add_dependency "inspec-core", ">= 7.0"
 end

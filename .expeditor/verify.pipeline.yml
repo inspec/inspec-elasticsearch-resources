@@ -8,14 +8,14 @@ expeditor:
           limit: 1
 
 steps:
-  - label: lint-chefstyle-ruby-3.4.2
+  - label: lint-chefstyle
     command:
       - chmod +x .expeditor/buildkite/verify.sh
       - .expeditor/buildkite/verify.sh "rake style"
     expeditor:
       executor:
         docker:
-          image: ruby:3.4.2-bullseye
+          image: ruby:3.1-bullseye
 
   - label: run-specs-ruby-3.1
     command:
@@ -24,7 +24,26 @@ steps:
     expeditor:
       executor:
         docker:
+          image: ruby:3.1-bullseye
+
+  - label: run-specs-ruby-3.4.2
+    command:
+      - chmod +x .expeditor/buildkite/verify.sh
+      - /workdir/.expeditor/buildkite/verify.sh "rake test"
+    expeditor:
+      executor:
+        docker:
           image: ruby:3.4.2-bullseye
+
+  - label: run-specs-ruby-3.4-windows
+    commands:
+      - /workdir/.expeditor/buildkite/verify.ps1
+    expeditor:
+      executor:
+        docker:
+          host_os: windows
+          shell: ["powershell", "-Command"]
+          image: rubydistros/windows-2019:3.4
 
   - label: run-specs-ruby-3.1-windows
     commands:
