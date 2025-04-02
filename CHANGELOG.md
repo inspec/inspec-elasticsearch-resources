@@ -1,14 +1,15 @@
 # Changelog
-<!-- latest_release 0.1.6 -->
-## [0.1.6](https://github.com/inspec/inspec-elasticsearch-resources/tree/0.1.6) (2025-03-27)
+<!-- latest_release 7.0.0 -->
+## [7.0.0](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.0.0) (2025-04-02)
 
 #### Merged Pull Requests
-- Adding Rubocop config files. [#10](https://github.com/inspec/inspec-elasticsearch-resources/pull/10) ([balasubramanian-s](https://github.com/balasubramanian-s))
+- CHEF-18512: Sync version with InSpec major version [#11](https://github.com/inspec/inspec-elasticsearch-resources/pull/11) ([ahasunos](https://github.com/ahasunos))
 <!-- latest_release -->
 <!-- release_rollup -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- CHEF-18512: Sync version with InSpec major version [#11](https://github.com/inspec/inspec-elasticsearch-resources/pull/11) ([ahasunos](https://github.com/ahasunos)) <!-- 7.0.0 -->
 - Adding Rubocop config files. [#10](https://github.com/inspec/inspec-elasticsearch-resources/pull/10) ([balasubramanian-s](https://github.com/balasubramanian-s)) <!-- 0.1.6 -->
 - dep: add gemspec dependency in our Gemfile [#9](https://github.com/inspec/inspec-elasticsearch-resources/pull/9) ([ahasunos](https://github.com/ahasunos)) <!-- 0.1.5 -->
 - CHEF-17305-Enable coverage pipelines [#7](https://github.com/inspec/inspec-elasticsearch-resources/pull/7) ([balasubramanian-s](https://github.com/balasubramanian-s)) <!-- 0.1.4 -->
