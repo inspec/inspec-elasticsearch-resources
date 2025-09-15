@@ -16,20 +16,19 @@ identifier = "inspec/resources/elasticsearch/about"
 parent = "inspec/resources/elasticsearch"
 +++
 
-The Chef InSpec Elasticsearch resources allow you to audit an Elasticsearch cluster.
+The Chef InSpec Elasticsearch resources allow you to audit and test the configuration, status, and security of Elasticsearch clusters.
 
 ## Support
 
-The InSpec Elasticsearch resources were part of InSpec core through InSpec 6.
-Starting in InSpec 7, they're released separately as a Ruby gem.
+The InSpec Elasticsearch resources were originally included as part of InSpec core through version 6. Starting with InSpec 7, they are distributed separately as a Ruby gem.
 
 ## Usage
 
-To add this resource pack to an InSpec profile, add the `inspec-elasticsearch-resources` gem as a dependency in your `inspec.yml` file:
+To use these resources in an InSpec profile, add the `inspec-elasticsearch-resources` gem as a dependency in your `inspec.yml` file:
 
 ```yaml
 depends:
- - name: inspec-elasticsearch-resources
+  - name: inspec-elasticsearch-resources
     gem: inspec-elasticsearch-resources
 ```
 
