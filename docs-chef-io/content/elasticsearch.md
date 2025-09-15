@@ -1,13 +1,11 @@
 +++
 title = "elasticsearch resource"
 draft = false
-gh_repo = "inspec"
-platform = "linux"
 
 [menu.elasticsearch]
     title = "elasticsearch"
-    identifier = "inspec/resources/os/elasticsearch.md elasticsearch resource"
-    parent = "inspec/resources/os"
+    identifier = "inspec/resources/elasticsearch/elasticsearch.md elasticsearch resource"
+    parent = "inspec/resources/elasticsearch"
 +++
 
 Use the `elasticsearch` resource to test the status of a node against a running
@@ -23,7 +21,7 @@ describe elasticsearch do
 end
 ```
 
-## Supported Resource Parameters
+## Parameters
 
 The `elasticsearch` resource accepts several optional resource parameters:
 
@@ -237,7 +235,7 @@ its('version') { should cmp '5.5.2' }
 
 ## Examples
 
-Test to verify the specific module. Uses additional Ruby to find a specific module and assert a value. For a succinct list of the names of each of the modules enabled, use the `module_list` property:
+This example demonstrates how to test a specific Elasticsearch module by using Ruby code to locate the module and verify its properties. This approach uses the `modules` property to get detailed module information, while the `module_list` property can be used for a simple list of enabled module names:
 
 ```ruby
 modules = elasticsearch.modules.first
@@ -249,8 +247,7 @@ describe 'lang-groovy module version' do
 end
 ```
 
-Tests to verify the specific plugin.
-Uses additional Ruby to find a specific plugin and assert a value. For a succinct list of the names of each of the plugins enabled, use the `plugin_list` property:
+This example shows how to verify the properties of a specific Elasticsearch plugin. Similar to modules, you can use the `plugins` property for detailed plugin information, or the `plugin_list` property for a simple list of enabled plugin names:
 
 ```ruby
 plugins = elasticsearch.plugins.first

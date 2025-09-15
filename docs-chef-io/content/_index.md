@@ -4,7 +4,11 @@ platform = "elasticsearch"
 draft = false
 linkTitle = "Elasticsearch resources"
 summary = "Chef InSpec resources for auditing Elasticsearch"
-gh_repo = "inspec-elasticsearch-resources"
+
+[cascade]
+  [cascade.params]
+    gh_repo = "inspec-elasticsearch-resources"
+    platform = "elasticsearch"
 
 [menu.elasticsearch]
 title = "About resources"
