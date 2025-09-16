@@ -1,19 +1,18 @@
 +++
-title = "About Chef InSpec Elasticsearch resources"
-platform = "elasticsearch"
+title = "About the Chef InSpec Elasticsearch resource pack"
 draft = false
-linkTitle = "Elasticsearch resources"
-summary = "Chef InSpec resources for auditing Elasticsearch"
+linkTitle = "Elasticsearch resource pack"
+summary = "Chef InSpec resources for auditing Elasticsearch."
 
 [cascade]
   [cascade.params]
-    gh_repo = "inspec-elasticsearch-resources"
     platform = "elasticsearch"
 
 [menu.elasticsearch]
-title = "About resources"
-identifier = "inspec/resources/elasticsearch/about"
-parent = "inspec/resources/elasticsearch"
+  title = "About Elasticsearch resources"
+  identifier = "inspec/resources/elasticsearch/about"
+  parent = "inspec/resources/elasticsearch"
+  weight = 10
 +++
 
 The Chef InSpec Elasticsearch resources allow you to audit and test the configuration, status, and security of Elasticsearch clusters.
