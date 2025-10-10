@@ -4,6 +4,6 @@
 # to learn the current version.
 module InspecPlugins
   module ElasticsearchResources
-    VERSION = "7.1.1"
+    VERSION = "7.1.2"
   end
 end

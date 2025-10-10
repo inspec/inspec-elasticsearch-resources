@@ -1,14 +1,15 @@
 # Changelog
-<!-- latest_release 7.1.1 -->
-## [7.1.1](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.1) (2025-09-16)
+<!-- latest_release 7.1.2 -->
+## [7.1.2](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.2) (2025-10-10)
 
 #### Merged Pull Requests
-- Reorganize elasticsearch resource docs [#13](https://github.com/inspec/inspec-elasticsearch-resources/pull/13) ([IanMadd](https://github.com/IanMadd))
+- Expeditor: Update config for gem release [#14](https://github.com/inspec/inspec-elasticsearch-resources/pull/14) ([balasubramanian-s](https://github.com/balasubramanian-s))
 <!-- latest_release -->
 <!-- release_rollup -->
 ### Changes since latest stable release
 
 #### Merged Pull Requests
+- Expeditor: Update config for gem release [#14](https://github.com/inspec/inspec-elasticsearch-resources/pull/14) ([balasubramanian-s](https://github.com/balasubramanian-s)) <!-- 7.1.2 -->
 - Reorganize elasticsearch resource docs [#13](https://github.com/inspec/inspec-elasticsearch-resources/pull/13) ([IanMadd](https://github.com/IanMadd)) <!-- 7.1.1 -->
 - CHEF-18375: Add support for the resource pack with ruby 3.4.2 [#8](https://github.com/inspec/inspec-elasticsearch-resources/pull/8) ([ahasunos](https://github.com/ahasunos)) <!-- 7.1.0 -->
 - CHEF-18512: Sync version with InSpec major version [#11](https://github.com/inspec/inspec-elasticsearch-resources/pull/11) ([ahasunos](https://github.com/ahasunos)) <!-- 7.0.0 -->
