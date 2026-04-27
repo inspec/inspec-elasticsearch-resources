@@ -1,14 +1,15 @@
 # Changelog
-<!-- latest_release 7.1.3 -->
-## [7.1.3](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.3) (2026-04-27)
+<!-- latest_release 7.1.4 -->
+## [7.1.4](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.4) (2026-04-27)
 
 #### Merged Pull Requests
-- Remove minitest/unit require incompatible with Minitest 6 [#23](https://github.com/inspec/inspec-elasticsearch-resources/pull/23) ([Nik08](https://github.com/Nik08))
+- Added config for private rubygem server [#24](https://github.com/inspec/inspec-elasticsearch-resources/pull/24) ([Nik08](https://github.com/Nik08))
 <!-- latest_release -->
 <!-- release_rollup since=7.1.2 -->
 ### Changes since 7.1.2 release
 
 #### Merged Pull Requests
+- Added config for private rubygem server [#24](https://github.com/inspec/inspec-elasticsearch-resources/pull/24) ([Nik08](https://github.com/Nik08)) <!-- 7.1.4 -->
 - Remove minitest/unit require incompatible with Minitest 6 [#23](https://github.com/inspec/inspec-elasticsearch-resources/pull/23) ([Nik08](https://github.com/Nik08)) <!-- 7.1.3 -->
 <!-- release_rollup -->
 <!-- latest_stable_release -->
