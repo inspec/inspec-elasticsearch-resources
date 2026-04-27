@@ -1,18 +1,16 @@
 # Changelog
-<!-- latest_release 7.1.4 -->
+<!-- latest_release -->
+<!-- latest_release -->
+<!-- release_rollup -->
+<!-- release_rollup -->
+<!-- latest_stable_release -->
 ## [7.1.4](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.4) (2026-04-27)
 
 #### Merged Pull Requests
+- Remove minitest/unit require incompatible with Minitest 6 [#23](https://github.com/inspec/inspec-elasticsearch-resources/pull/23) ([Nik08](https://github.com/Nik08))
 - Added config for private rubygem server [#24](https://github.com/inspec/inspec-elasticsearch-resources/pull/24) ([Nik08](https://github.com/Nik08))
-<!-- latest_release -->
-<!-- release_rollup since=7.1.2 -->
-### Changes since 7.1.2 release
-
-#### Merged Pull Requests
-- Added config for private rubygem server [#24](https://github.com/inspec/inspec-elasticsearch-resources/pull/24) ([Nik08](https://github.com/Nik08)) <!-- 7.1.4 -->
-- Remove minitest/unit require incompatible with Minitest 6 [#23](https://github.com/inspec/inspec-elasticsearch-resources/pull/23) ([Nik08](https://github.com/Nik08)) <!-- 7.1.3 -->
-<!-- release_rollup -->
 <!-- latest_stable_release -->
+
 ## [7.1.2](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.2) (2025-10-16)
 
 #### Merged Pull Requests
@@ -26,7 +24,6 @@
 - CHEF-18375: Add support for the resource pack with ruby 3.4.2 [#8](https://github.com/inspec/inspec-elasticsearch-resources/pull/8) ([ahasunos](https://github.com/ahasunos))
 - Reorganize elasticsearch resource docs [#13](https://github.com/inspec/inspec-elasticsearch-resources/pull/13) ([IanMadd](https://github.com/IanMadd))
 - Expeditor: Update config for gem release [#14](https://github.com/inspec/inspec-elasticsearch-resources/pull/14) ([balasubramanian-s](https://github.com/balasubramanian-s))
-<!-- latest_stable_release -->
 
 
 ## Previous Release
