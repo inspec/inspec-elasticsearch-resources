@@ -143,4 +143,69 @@ describe "Elasticsearch" do
       _(resource.cluster_name).must_equal ["no_ssl"]
     end
   end
+
+  describe "error handling" do
+    # Tests for the fix: non-Hash opts should skip gracefully instead of raising NoMethodError
+    it "skips with a helpful message when a non-Hash argument is passed" do
+      resource = load_elasticsearch_resource("http://localhost:9200")
+      _(resource.resource_skipped?).must_equal true
+      _(resource.resource_exception_message).must_include "Hash"
+    end
+
+    it "skips with a helpful message when an Integer is passed as opts" do
+      resource = load_elasticsearch_resource(9200)
+      _(resource.resource_skipped?).must_equal true
+      _(resource.resource_exception_message).must_include "Hash"
+    end
+
+    # Tests for the fix: curl connection failures should skip with a clear message
+    it "skips with a helpful message when connection is refused" do
+      resource = load_elasticsearch_resource(url: "http://unreachable.example.com:9200")
+      _(resource.resource_skipped?).must_equal true
+      _(resource.resource_exception_message).must_include "Connection refused"
+    end
+
+    # Tests for the fix: Elasticsearch error payloads should skip with a clear message
+    it "skips with the error type when Elasticsearch returns an auth error payload" do
+      resource = load_elasticsearch_resource(url: "http://auth-required.example.com:9200")
+      _(resource.resource_skipped?).must_equal true
+      _(resource.resource_exception_message).must_include "security_exception"
+    end
+
+    # Tests for the fix: missing _nodes field in response should skip with a clear message
+    it "skips with a helpful message when response is missing the _nodes field" do
+      resource = load_elasticsearch_resource(url: "http://no-nodes-field.example.com:9200")
+      _(resource.resource_skipped?).must_equal true
+      _(resource.resource_exception_message).must_include "_nodes"
+    end
+
+    # Tests for the fix: zero successful nodes should skip with a clear message
+    it "skips with a helpful message when no nodes are successful in the cluster" do
+      resource = load_elasticsearch_resource(url: "http://zero-successful.example.com:9200")
+      _(resource.resource_skipped?).must_equal true
+      _(resource.resource_exception_message).must_include "No successful nodes"
+    end
+
+    # Tests for the fix: nodes missing plugins/modules/settings should not raise NoMethodError
+    it "does not raise when a node is missing plugins, modules, and settings" do
+      resource = load_elasticsearch_resource(url: "http://sparse.example.com:9200")
+      _(resource.resource_skipped?).must_equal false
+      _(resource.node_count).must_equal 1
+    end
+
+    it "returns empty plugin_list when node has no plugins" do
+      resource = load_elasticsearch_resource(url: "http://sparse.example.com:9200")
+      _(resource.plugin_list.first).must_equal []
+    end
+
+    it "returns empty module_list when node has no modules" do
+      resource = load_elasticsearch_resource(url: "http://sparse.example.com:9200")
+      _(resource.module_list.first).must_equal []
+    end
+
+    it "returns nil cluster_name when node has no settings" do
+      resource = load_elasticsearch_resource(url: "http://sparse.example.com:9200")
+      _(resource.cluster_name.first).must_be_nil
+    end
+  end
 end

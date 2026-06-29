@@ -1,0 +1,17 @@
+name: inspec-profile-wrong-usage
+title: Wrong Usage Error Handling Profile
+maintainer: InSpec Engineering
+copyright: Chef Software, Inc.
+copyright_email: inspec@chef.io
+license: Apache-2.0
+summary: >
+  Profile that exercises incorrect usage of the elasticsearch resource.
+  All controls in this profile are expected to be SKIPPED — Elasticsearch
+  is not running and arguments are intentionally wrong. This validates that
+  the resource handles bad usage gracefully (CHEF-36280).
+version: 0.1.0
+supports:
+  platform: os
+depends:
+  - name: inspec-elasticsearch-resources
+    path: '../../../'

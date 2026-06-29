@@ -1,0 +1,15 @@
+{
+  "_nodes": { "total": 1, "successful": 1, "failed": 0 },
+  "cluster_name": "sparse",
+  "nodes": {
+    "sparseNodeId123": {
+      "name": "sparse-node",
+      "transport_address": "127.0.0.1:9300",
+      "host": "sparse.example.com",
+      "ip": "127.0.0.1",
+      "version": "7.10.0",
+      "build_hash": "abc1234",
+      "total_indexing_buffer": 100000
+    }
+  }
+}

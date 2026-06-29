@@ -43,11 +43,20 @@ def backend
     stdout = ::File.read(::File.join(scriptpath, "/fixtures/" + x))
     mock.mock_command("", stdout, "", 0)
   }
+  cmd_stderr = lambda { |stderr_msg|
+    mock.mock_command("", "", stderr_msg, 1)
+  }
+
   mock.commands = {
     "curl -H 'Content-Type: application/json' http://localhost:9200/_nodes" => cmd.call("elasticsearch-cluster-nodes-default"),
     "curl -k -H 'Content-Type: application/json' http://localhost:9200/_nodes" => cmd.call("elasticsearch-cluster-no-ssl"),
     "curl -H 'Content-Type: application/json'  -u es_admin:password http://localhost:9200/_nodes" => cmd.call("elasticsearch-cluster-auth"),
     "curl -H 'Content-Type: application/json' http://elasticsearch.mycompany.biz:1234/_nodes" => cmd.call("elasticsearch-cluster-url"),
+    "curl -H 'Content-Type: application/json' http://unreachable.example.com:9200/_nodes" => cmd_stderr.call("curl: (7) Failed to connect to unreachable.example.com port 9200: Connection refused"),
+    "curl -H 'Content-Type: application/json' http://auth-required.example.com:9200/_nodes" => cmd.call("elasticsearch-cluster-error-response"),
+    "curl -H 'Content-Type: application/json' http://no-nodes-field.example.com:9200/_nodes" => cmd.call("elasticsearch-cluster-no-nodes-field"),
+    "curl -H 'Content-Type: application/json' http://sparse.example.com:9200/_nodes" => cmd.call("elasticsearch-cluster-sparse-node"),
+    "curl -H 'Content-Type: application/json' http://zero-successful.example.com:9200/_nodes" => cmd.call("elasticsearch-cluster-zero-successful"),
     %{sh -c 'type "curl"'} => cmd.call("sh-c-type-curl"),
   }
   @backend

@@ -54,6 +54,10 @@ class Elasticsearch < Inspec.resource(1)
   def initialize(opts = {})
     return skip_resource "Package `curl` not avaiable on the host" unless inspec.command("curl").exist?
 
+    unless opts.is_a?(Hash)
+      return skip_resource "elasticsearch resource requires a Hash of options (e.g., url:, username:, password:), got #{opts.class}"
+    end
+
     @url = opts.fetch(:url, "http://localhost:9200")
 
     username   = opts.fetch(:username, nil)
@@ -104,9 +108,9 @@ class Elasticsearch < Inspec.resource(1)
 
       node = Hashie::Mash.new(node_data)
       node.node_id = node_id
-      node.plugin_list = node.plugins.map(&:name)
-      node.module_list = node.modules.map(&:name)
-      node.cluster_name = node.settings.cluster.name
+      node.plugin_list = node.plugins&.map(&:name) || []
+      node.module_list = node.modules&.map(&:name) || []
+      node.cluster_name = node&.settings&.cluster&.name
       nodes << node
     end
 
@@ -159,7 +163,13 @@ class Elasticsearch < Inspec.resource(1)
 
   def verify_json_payload!(content)
     unless content["error"].nil?
-      raise "#{content["error"]["type"]}: #{content["error"]["reason"]}"
+      error_type = content.dig("error", "type") || "unknown_error"
+      error_reason = content.dig("error", "reason") || content["error"].to_s
+      raise "#{error_type}: #{error_reason}"
+    end
+
+    if content["_nodes"].nil?
+      raise "Unexpected response from Elasticsearch - missing '_nodes' field. Ensure the URL points to a valid Elasticsearch endpoint."
     end
 
     raise "No successful nodes available in cluster" if content["_nodes"]["successful"] == 0

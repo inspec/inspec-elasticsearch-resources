@@ -1,0 +1,5 @@
+{
+  "_nodes": { "total": 2, "successful": 0, "failed": 2 },
+  "cluster_name": "mycluster",
+  "nodes": {}
+}
