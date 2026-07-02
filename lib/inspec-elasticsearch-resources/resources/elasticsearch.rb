@@ -9,7 +9,11 @@ class Elasticsearch < Inspec.resource(1)
     an Elasticsearch cluster."
 
   example <<~EXAMPLE
-    describe elasticsearch('http://eshost.mycompany.biz:9200/', username: 'elastic', password: 'changeme', ssl_verify: false) do
+    describe elasticsearch('http://eshost.mycompany.biz:9200') do
+      its('node_count') { should >= 3 }
+    end
+
+    describe elasticsearch(url: 'http://eshost.mycompany.biz:9200', username: 'elastic', password: 'changeme', ssl_verify: false) do
       its('node_count') { should >= 3 }
     end
 
@@ -52,10 +56,12 @@ class Elasticsearch < Inspec.resource(1)
   attr_reader :nodes, :url
 
   def initialize(opts = {})
-    return skip_resource "Package `curl` not avaiable on the host" unless inspec.command("curl").exist?
+    return skip_resource "Package `curl` not available on the host" unless inspec.command("curl").exist?
+
+    opts = { url: opts } if opts.is_a?(String)
 
     unless opts.is_a?(Hash)
-      return skip_resource "elasticsearch resource requires a Hash of options (e.g., url:, username:, password:), got #{opts.class}"
+      return skip_resource "elasticsearch resource requires a URL string or Hash of options (e.g., url:, username:, password:), got #{opts.class}"
     end
 
     @url = opts.fetch(:url, "http://localhost:9200")
@@ -162,6 +168,10 @@ class Elasticsearch < Inspec.resource(1)
   end
 
   def verify_json_payload!(content)
+    unless content.is_a?(Hash)
+      raise "Unexpected response from Elasticsearch - expected a JSON object but got #{content.class}. Ensure the URL points to a valid Elasticsearch endpoint."
+    end
+
     unless content["error"].nil?
       error_type = content.dig("error", "type") || "unknown_error"
       error_reason = content.dig("error", "reason") || content["error"].to_s
