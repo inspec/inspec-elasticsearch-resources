@@ -144,14 +144,20 @@ describe "Elasticsearch" do
     end
   end
 
-  describe "error handling" do
-    # Tests for the fix: non-Hash opts should skip gracefully instead of raising NoMethodError
-    it "skips with a helpful message when a non-Hash argument is passed" do
-      resource = load_elasticsearch_resource("http://localhost:9200")
-      _(resource.resource_skipped?).must_equal true
-      _(resource.resource_exception_message).must_include "Hash"
+  describe "with a plain string URL" do
+    let(:resource) { load_elasticsearch_resource("http://localhost:9200") }
+
+    it "does not skip when a plain URL string is passed" do
+      _(resource.resource_skipped?).must_equal false
     end
 
+    it "returns cluster data when a plain URL string is passed" do
+      _(resource.node_count).must_equal 2
+    end
+  end
+
+  describe "error handling" do
+    # Tests for the fix: non-String, non-Hash opts should skip gracefully
     it "skips with a helpful message when an Integer is passed as opts" do
       resource = load_elasticsearch_resource(9200)
       _(resource.resource_skipped?).must_equal true
