@@ -9,7 +9,7 @@ class Elasticsearch < Inspec.resource(1)
     an Elasticsearch cluster."
 
   example <<~EXAMPLE
-    describe elasticsearch('http://eshost.mycompany.biz:9200/', username: 'elastic', password: 'changeme', ssl_verify: false) do
+    describe elasticsearch(url: 'http://eshost.mycompany.biz:9200/', username: 'elastic', password: 'changeme', ssl_verify: false) do
       its('node_count') { should >= 3 }
     end
 
