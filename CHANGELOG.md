@@ -1,7 +1,15 @@
 # Changelog
+<!-- latest_release 7.1.6 -->
+## [7.1.6](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.6) (2026-07-20)
+
+#### Merged Pull Requests
+- CHEF-36820 Updated the example since we only support HASH opts for resource [#27](https://github.com/inspec/inspec-elasticsearch-resources/pull/27) ([Nik08](https://github.com/Nik08))
 <!-- latest_release -->
-<!-- latest_release -->
-<!-- release_rollup -->
+<!-- release_rollup since=7.1.5 -->
+### Changes since 7.1.5 release
+
+#### Merged Pull Requests
+- CHEF-36820 Updated the example since we only support HASH opts for resource [#27](https://github.com/inspec/inspec-elasticsearch-resources/pull/27) ([Nik08](https://github.com/Nik08)) <!-- 7.1.6 -->
 <!-- release_rollup -->
 <!-- latest_stable_release -->
 ## [7.1.5](https://github.com/inspec/inspec-elasticsearch-resources/tree/7.1.5) (2026-04-27)
