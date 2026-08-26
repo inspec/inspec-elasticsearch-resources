@@ -13,3 +13,6 @@ depends:
     gem: inspec-elasticsearch-resources
 ```
 
+# Copyright
+
+See [COPYRIGHT.md](./COPYRIGHT.md).
